@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/Vpazinatto/payfast/issues"
   },
-  "homepage": "https://github.com/Vpazinatto/payfast#readme"
+  "homepage": "https://github.com/Vpazinatto/payfast#readme",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "express": "^4.16.3"
+  }
 }
