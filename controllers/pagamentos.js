@@ -5,11 +5,17 @@ module.exports = function(app) {
 
     app.post('/pagamentos/pagamento', function(req, res) {
         var pagamento = req.body;
-        console.log('Processando novo pagamento');
+        console.log('Processando novo pagamento...');
 
         pagamento.status = 'CRIADO';
         pagamento.data = new Date;
 
-        res.send(pagamento);
+        var con = app.persistencia.connectionFactory();
+        var pagamentoDAO = app.persistencia.PagamentoDAO(con);
+
+        pagamentoDAO.salva(pagamento, function(err, result) {
+            console.log('pagamento criado');
+            res.json(pagamento);
+        });
     });
 }

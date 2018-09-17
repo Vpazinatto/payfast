@@ -8,7 +8,7 @@ module.exports = function(app) {
     app.use(bodyParser.urlencoded({extended: true}));    
     app.use(bodyParser.json);
 
-    consign().include('controllers').into(app);
+    consign().include('controllers').then('persistencia').into(app);
 
     return app;
 }
