@@ -7,7 +7,11 @@ PagamentoDAO.prototype.lista = function(callback) {
 }
 
 PagamentoDAO.prototype.salva = function(pagamento, callback) {
-    this._connection.query('insert into pagamentos set ?', pagamento, callback);
+    this._connection.query('INSERT INTO pagamentos SET ?', pagamento, callback);
+}
+
+PagamentoDAO.prototype.atualiza = function(pagamento, callback) {
+    this._connection.query('UPDATE pagamentos SET status = ? where id = ?', [pagamento.status, pagamento.id], callback);
 }
 
 PagamentoDAO.prototype.buscaPorId = function(id, callback) {
@@ -16,4 +20,4 @@ PagamentoDAO.prototype.buscaPorId = function(id, callback) {
 
 module.exports = function() {
     return PagamentoDAO;
-};
+}
