@@ -21,7 +21,6 @@ module.exports = function(app) {
             res.json(result);
             return;
         });
-
     });
 
     app.delete('/pagamentos/pagamento/:id', function(req, res) {
